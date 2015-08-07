@@ -34,6 +34,7 @@ newdatetime <- as.data.frame(newdatetime)
 newdata <- bind_cols(alla_dagar,newdatetime)
 
 #Buliding up the Plot
+#OBS!!! It's Swedish time: Thu=Tor, Fri=Fre and Lör=Sat.
 par(bg="white")
 par(mfrow=c(2,2))
 
@@ -49,7 +50,7 @@ par(new=T)
 plot(newdata$newdatetime,y=newdata$Sub_metering_2,type="l",ylab="",xlab="",col="red",axes=F,ylim=c(0,40))
 par(new=T)
 plot(newdata$newdatetime,y=newdata$Sub_metering_3,type="l",ylab="",xlab="",col="blue",axes=F,ylim=c(0,40))
-legend("topright",pch=c("-","-","-"),col=c("black","red","blue"),legend=c("Sub_metering_1 ","Sub_metering_2 ","Sub_metering_3 "))
+legend("topright",pch=c("-","-","-"),col=c("black","red","blue"),legend=c("Sub_metering_1 ","Sub_metering_2 ","Sub_metering_3 "),box.col="transparent")
 
 #Subplot 4
 plot(newdata$newdatetime,newdata$Global_reactive_power,type="l",xlab="datetime",ylab="Global_reactive_power")
