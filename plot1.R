@@ -1,6 +1,9 @@
 #Code for Plot 1
 #Make sure to have the household_power_consumption.txt in your workingdirectory before you start!
 
+#Load packages
+library(dplyr)
+
 #Loading data form working directory into R
 data <- read.table("household_power_consumption.txt", sep=";", na.strings="?")
 
@@ -25,6 +28,8 @@ newgap <- apply(gap,c(1,2),as.character)
 newgap <- apply(gap,c(1,2),as.numeric)
 
 #Making the plot
+par(bg="white")
+
 hist(newgap, main="Global Active Power",xlab="Global Active Power (kilowatts)",col="red")
 
 #Saving the plot

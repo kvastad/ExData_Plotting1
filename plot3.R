@@ -1,6 +1,9 @@
 #Code for Plot 3
 #Make sure to have the household_power_consumption.txt in your workingdirectory before you start!
 
+#Load packages
+library(dplyr)
+
 #Loading data form working directory into R
 data <- read.table("household_power_consumption.txt", sep=";", na.strings="?",header=TRUE)
 
@@ -31,6 +34,9 @@ newdatetime <- as.data.frame(newdatetime)
 newdata <- bind_cols(alla_dagar,newdatetime)
 
 #Buliding up the Plot
+#OBS!!! It's Swedish time: Thu=Tor, Fri=Fre and Lör=Sat.
+par(bg="white")
+
 plot(newdata$newdatetime,y=newdata$Sub_metering_1,type="l",ylab="Energy sub metering",xlab="",ylim=c(0,40))
 par(new=T)
 plot(newdata$newdatetime,y=newdata$Sub_metering_2,type="l",ylab="",xlab="",col="red",axes=F,ylim=c(0,40))
